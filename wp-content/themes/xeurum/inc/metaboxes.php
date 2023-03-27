@@ -85,5 +85,56 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
         ],
     ];
 
+    // Portfolio setting fields
+    $portfolio_prefix = '_xeu_portfolio_';
+    $meta_boxes[] = [
+        'id' => 'portfolio_',
+        'title' => 'Portfolio section',
+        'post_types' => 'portfolio',
+        'fields' => [
+            [
+                'name' => 'Portfolio description',
+                'id' => $portfolio_prefix . 'description',
+                'type' => 'wysiwyg'
+            ],
+            [
+                'name' => 'Portfolio description short',
+                'id' => $portfolio_prefix . 'description_short',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'About project',
+                'id' => $portfolio_prefix . 'about_project',
+                'type' => 'group',
+                'clone' => true,
+                'sort_clone' => true,
+                'max_clone' => 4,
+                'fields' => [
+                    [
+                        'name' => 'Icon',
+                        'id' => 'icon',
+                        'type' => 'single_image'
+                    ],
+                    [
+                        'name' => 'Label',
+                        'id' => 'label',
+                        'type' => 'text'
+                    ],
+                    [
+                        'name' => 'Description',
+                        'id' => 'description',
+                        'type' => 'text'
+                    ],
+                ]
+            ],
+            [
+                'name' => 'Technologies',
+                'id' => $portfolio_prefix . 'technologies',
+                'type' => 'image_advanced',
+                'image_size' => 'thumbnail'
+            ],
+        ]
+    ];
+
     return $meta_boxes;
 }

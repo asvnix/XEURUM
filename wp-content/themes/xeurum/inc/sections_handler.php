@@ -18,7 +18,14 @@ function xeu_register_meta_boxes($meta_boxes) {
     $meta_boxes[] = [
         'id' => 'page_sections',
         'title' => 'Sections',
-        'post_types' => 'page',
+        'post_types' => ['page', 'portfolio', 'services'],
+         'include' => [
+             'template' => [
+                 'landingpage.php',
+                 'single-portfolio.php',
+                 'single-services.php'
+             ]
+         ],
         'context' => 'side',
         'priority' => 'high',
         'fields' => [
