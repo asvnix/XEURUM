@@ -77,10 +77,24 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
                 'type' => 'single_image',
             ],
             [
-                'name' => 'Copyright text',
-                'id' => $footer_prefix . 'copyright',
-                'type' => 'text',
-                'size' => 100
+                'name' => 'Contacts title',
+                'id' => $footer_prefix . 'contacts_title',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'Contacts email',
+                'id' => $footer_prefix . 'contacts_email',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'Contacts phone',
+                'id' => $footer_prefix . 'contacts_phone',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'Contacts address',
+                'id' => $footer_prefix . 'contacts_address',
+                'type' => 'text'
             ],
         ],
     ];
