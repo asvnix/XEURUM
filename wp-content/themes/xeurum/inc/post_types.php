@@ -28,7 +28,7 @@ function register_post_types(){
         'menu_position'          => 5,
         'menu_icon'              => 'dashicons-open-folder',
         'hierarchical'           => true,
-        'supports'               => [ 'title', 'editor', 'thumbnail' ],
+        'supports'               => [ 'title', 'thumbnail' ],
         'taxonomies'             => [],
         'has_archive'            => true,
         'rewrite'                => true,

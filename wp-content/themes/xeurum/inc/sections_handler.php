@@ -18,12 +18,10 @@ function xeu_register_meta_boxes($meta_boxes) {
     $meta_boxes[] = [
         'id' => 'page_sections',
         'title' => 'Sections',
-        'post_types' => ['page', 'portfolio', 'services'],
+        'post_types' => ['page'],
          'include' => [
              'template' => [
                  'landingpage.php',
-                 'single-portfolio.php',
-                 'single-services.php'
              ]
          ],
         'context' => 'side',
@@ -88,7 +86,7 @@ function xeu_get_sections_metaboxes($prefix) {
         $page_sections = get_post_meta($post_id, $prefix . 'page_sections', true);
     }
 
-    if (!empty($page_sections)) {
+    if (!empty($page_sections) && $page_sections[0]['type']) {
         foreach ($page_sections as $section) {
             $metabox[] = call_user_func('xeu_metaboxes_' . $section['type'], $section['id']);
         }

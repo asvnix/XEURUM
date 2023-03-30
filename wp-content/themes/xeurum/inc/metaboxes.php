@@ -13,12 +13,6 @@ function xeu_options_pages($settings_pages) {
         'submenu_title' => 'Site Settings',
     );
     $settings_pages[] = [
-        'id'          => 'xeu-header-settings',
-        'option_name' => 'xeu_header_settings',
-        'menu_title'  => 'Header Options',
-        'parent'      => 'xeu-site-settings',
-    ];
-    $settings_pages[] = [
         'id'          => 'xeu-footer-settings',
         'option_name' => 'xeu_footer_settings',
         'menu_title'  => 'Footer Options',
@@ -36,7 +30,6 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
 
     /* define site setting prefixes */
     $site_prefix = '_xeu_site_field_';
-    $header_prefix = '_xeu_header_field_';
     $footer_prefix = '_xeu_footer_field_';
 
     // all site setting fields
@@ -45,23 +38,9 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
         'settings_pages' => 'xeu-site-settings',
         'fields' => [
             [
-                'name' => 'Google API',
-                'id'   => $site_prefix . 'google_api',
-                'type' => 'text',
-                'size' => 100
-            ],
-        ],
-    ];
-
-    // header setting fields
-    $meta_boxes[] = [
-        'title' => 'Header Settings',
-        'settings_pages' => 'xeu-header-settings',
-        'fields' => [
-            [
-                'name' => 'Logo',
-                'id' => $header_prefix . 'logo',
-                'type' => 'single_image',
+                'name' => 'Portfolio banner image',
+                'id' => $site_prefix . 'portfolio_banner_image',
+                'type' => 'single_image'
             ],
         ],
     ];
@@ -71,11 +50,6 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
         'title' => 'Footer Settings',
         'settings_pages' => 'xeu-footer-settings',
         'fields' => [
-            [
-                'name' => 'Logo',
-                'id' => $footer_prefix . 'logo',
-                'type' => 'single_image',
-            ],
             [
                 'name' => 'Contacts title',
                 'id' => $footer_prefix . 'contacts_title',
@@ -138,6 +112,20 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
                         'name' => 'Description',
                         'id' => 'description',
                         'type' => 'text'
+                    ],
+                ]
+            ],
+            [
+                'name' => 'Description project',
+                'id' => $portfolio_prefix . 'description_project',
+                'type' => 'group',
+                'clone' => true,
+                'sort_clone' => true,
+                'fields' => [
+                    [
+                        'name' => 'Description',
+                        'id' => 'description',
+                        'type' => 'wysiwyg'
                     ],
                 ]
             ],
