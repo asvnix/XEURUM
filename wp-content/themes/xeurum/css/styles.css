@@ -12,6 +12,7 @@ main {
     margin: 0 auto;
     max-width: 1320px;
     padding: 0px 25px;
+    position: relative;
 }
 .row {
     display: flex;
@@ -29,6 +30,15 @@ main {
 }
 .section {
     padding: 110px 0px;
+}
+.section--default {
+    background: #4281ef;
+}
+.section--default .section-title {
+    color: #ffffff;
+}
+.default--description__wrapper {
+    width: 100%;
 }
 .section__title-wrapper {
     width: 100%;
@@ -93,6 +103,34 @@ input[type="submit"]:hover {
 }
 .wpcf7-spinner {
     display: none !important;
+}
+.breadcrumbs {
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    margin: 0px;
+    position: absolute;
+    top: -94px;
+}
+.breadcrumbs .breadcrumbs_item {
+    font-size: 16px;
+    line-height: 20px;
+    color: #F0F0F0;
+}
+.breadcrumbs .separator {
+    font-size: 16px;
+    line-height: 20px;
+    color: #F0F0F0;
+    margin: 0px 5px;
+}
+.breadcrumbs .link {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+.breadcrumbs .breadcrumbs_item span {
+    font-weight: 700;
 }
 
 /* ---------------- HEADER ---------------- */
@@ -548,6 +586,99 @@ header.fixed {
 }
 .section__contacts .address--item:before {
     background-image: url("../image/icons/24-pin.svg");
+}
+
+/* ---------------- PORTFOLIO PAGE ---------------- */
+
+.section__banner--archive {
+    padding: 220px 0px 130px;
+}
+
+.about_project--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.about_project--item {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 25%;
+    padding: 60px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about_project--item:first-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.about_project--icon {
+    height: 54px;
+    width: 54px;
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+.about_project--icon img {
+    width: 100%;
+    height: 100%;
+}
+.about_project--description{
+    display: flex;
+    flex-direction: column;
+}
+.about_project--description .label {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 12px;
+}
+.about_project--description .description {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1A1A;
+}
+
+.section__content {
+    padding-top: 0px;
+}
+.content--description {
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    align-items: center;
+}
+.section__content h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 46px;
+    color: #1E1F25;
+    margin: 0px 0px 24px;
+    width: 100%;
+}
+.section__content p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #1A1A1A;
+    margin: 0px 0px 16px;
+}
+.section__content .content--description .wp-caption-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #1A1A1A;
+    margin: 10px 0px 24px !important;
+}
+.section__content .content--description *:last-child {
+    margin: 0px;
+}
+
+.portfolio--section__technologies .section__icons-wrapper .single__icon {
+    width: 12.5%;
+}
+.portfolio--section__technologies .section__icons-wrapper .single__icon img {
+    align-self: center;
 }
 
 /* ---------------- CONTACT US PAGE ---------------- */
