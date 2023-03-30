@@ -1,33 +1,22 @@
 <?php get_header(); ?>
 
-    <section>
-
-        <div class="container">
-
-            <div class="row">
-                
-                <div class="col">
-
-                <?php if (have_posts()): ?>
-
-                    <?php while (have_posts()): ?>
-
-                        <?php the_post(); ?>
-
-                        <h1><?php the_title(); ?></h1>
-
-                        <?php the_content(); ?>
-
-                    <?php endwhile; ?>
-                    
-                <?php endif; ?>
-
+<?php if (have_posts()): ?>
+    <?php while (have_posts()): the_post(); ?>
+        <section class="section section--default">
+            <div class="container">
+                <div class="row">
+                    <div class="wrapper">
+                        <div class="default--description__wrapper">
+                            <h1 class="section-title"><?php the_title();?></h1>
+                            <div class="post__description">
+                                <?php the_content(); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-        </div>
-
-    </section>
+        </section>
+    <?php endwhile; ?>
+<?php endif; ?>
 
 <?php get_footer(); ?>
