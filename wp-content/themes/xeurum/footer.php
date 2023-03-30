@@ -4,7 +4,7 @@
  */
 ?>
         </main>
-        <footer class="<?= $args['class']; ?>">
+        <footer class="<?= (is_array($args) && count($args) > 0) ? $args['class'] : '' ; ?>">
             <?php get_template_part( 'components/contacts-form', '', []); ?>
 		</footer>
 
