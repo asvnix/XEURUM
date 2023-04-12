@@ -23,7 +23,7 @@ function xeurum_styles() {
 }
 function xeurum_scripts() {
 
-    wp_enqueue_script('xeurum-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0');
+    wp_enqueue_script('xeurum-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0', true);
     wp_localize_script('xeurum-scripts', 'generalData', ['ajaxurl' => admin_url('admin-ajax.php')]);
 
 }

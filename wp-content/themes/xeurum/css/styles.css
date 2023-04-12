@@ -4,6 +4,7 @@ body {
 h1, h2, h3, h4, h5, h6, p, a, html, body, div, span, strong, b, i, em, section {
     font-family: 'Mulish', sans-serif;
     box-sizing: border-box;
+    margin-top: 0px;
 }
 main {
     margin-top: -88px;
@@ -132,6 +133,9 @@ input[type="submit"]:hover {
 .breadcrumbs .breadcrumbs_item span {
     font-weight: 700;
 }
+.mobile_show {
+    display: none;
+}
 
 /* ---------------- HEADER ---------------- */
 
@@ -142,9 +146,13 @@ header {
     z-index: 100;
     transition: background .3s;
 }
+header .container {
+    position: static;
+}
 header .wrapper {
     justify-content: space-between;
     align-items: center;
+    position: static;
 }
 .logo_wrapper a {
     font-family: 'Mulish', sans-serif;
@@ -153,6 +161,45 @@ header .wrapper {
     line-height: 40px;
     text-decoration: none;
     color: #FFFFFF;
+}
+.burger_wrapper {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.burger_wrapper .line {
+    height: 3px;
+    width: 36px;
+    background-color: #FFFFFF;
+    display: block;
+}
+.burger_wrapper .line_top {
+    position: absolute;
+    transform: rotate(0deg);
+    top: 8px;
+}
+.burger_wrapper .line_middle {
+
+}
+.burger_wrapper .line_bottom {
+    position: absolute;
+    transform: rotate(0deg);
+    top: 30px;
+}
+.menu_wrapper.open .line_top {
+    transform: rotate(45deg);
+    top: 18px;
+}
+.menu_wrapper.open .line_bottom {
+    transform: rotate(-45deg);
+    top: 18px;
+}
+.menu_wrapper.open .line_middle {
+    display: none;
 }
 .menu_wrapper ul {
     display: flex;
@@ -273,7 +320,7 @@ header.fixed {
     flex-wrap: wrap;
 }
 .single__service {
-    width: calc(33.33% - 1px);
+    width: 33.33%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -308,6 +355,9 @@ header.fixed {
 
 /* ---------------- TECHNOLOGIES SECTION ---------------- */
 
+.section__icons-mobile-wrapper {
+    width: 100%;
+}
 .section__icons-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -318,6 +368,9 @@ header.fixed {
     height: 100px;
     display: flex;
     justify-content: center;
+}
+.section__icons-wrapper .single__icon img {
+    max-width: 100%;
 }
 .section__icons-wrapper .single__icon-1 img {
     align-self: flex-start;
@@ -339,12 +392,14 @@ header.fixed {
 
 .post__item--wrapper {
     display: flex;
+    width: 100%;
 }
 .post__item--wrapper:nth-child(even) {
     flex-direction: row-reverse;
 }
 .post__item--image {
     width: 50%;
+    height: 550px;
 }
 .post__item--image img {
     width: 100%;
@@ -353,11 +408,11 @@ header.fixed {
 }
 .post__item--description-wrapper {
     width: 50%;
-    padding: 110px 80px;
+    padding: 20px 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 635px;
+    justify-content: center;
 }
 .post__item--title {
     font-weight: 500;
@@ -375,10 +430,16 @@ header.fixed {
 .post__item--technologies-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 85px;
+    flex-wrap: wrap;
 }
 .post__item--technologies-icon {
     margin-right: 15px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.post__item--technologies-icon img {
+    height: 100%;
 }
 .post__item--technologies-icon:last-child {
     margin-right: 0px;
@@ -647,7 +708,6 @@ header.fixed {
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
-    align-items: center;
 }
 .section__content h2 {
     font-weight: 700;
@@ -657,11 +717,57 @@ header.fixed {
     margin: 0px 0px 24px;
     width: 100%;
 }
+.section__content h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 2em;
+    color: #1E1F25;
+    margin: 0px 0px 20px;
+}
+.section__content h4 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.8em;
+    color: #1E1F25;
+    margin: 0px 0px 16px;
+}
+.section__content h5 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.8em;
+    color: #1E1F25;
+    margin: 0px 0px 16px;
+}
+.section__content h6 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5em;
+    color: #1E1F25;
+    margin: 0px 0px 16px;
+}
+.section__content ul,
+.section__content ol {
+    margin-top: 0px;
+    padding-left: 20px;
+}
+.section__content li {
+    font-size: 16px;
+    line-height: 24px;
+    color: #1A1A1A;
+    margin: 0px 0px 12px;
+}
+.section__content a {
+    text-decoration: none;
+    color: #4281ef;
+}
 .section__content p {
     font-size: 16px;
     line-height: 24px;
     color: #1A1A1A;
     margin: 0px 0px 16px;
+}
+.section__content .content--description .wp-caption {
+    align-self: center;
 }
 .section__content .content--description .wp-caption-text {
     font-size: 16px;

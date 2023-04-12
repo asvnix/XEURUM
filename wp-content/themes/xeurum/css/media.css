@@ -1,21 +1,291 @@
 @media screen and (max-width: 1200px) {
 
+    /* Portfolio component */
+    .post__item--description-wrapper {
+        padding: 20px 40px;
+    }
+
 }
 
 @media screen and (max-width: 1024px) {
+
+    /* General */
+    .section {
+        padding: 64px 0px;
+    }
+    .section--contacts_page {
+        padding-top: 152px;
+    }
+
+    /* Our service */
+    .section__service-wrapper {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Portfolio component */
+    .post__item--image {
+        height: 365px;
+    }
+    .post__item--technologies-wrapper {
+        margin-bottom: 20px;
+    }
+    .post__item--technologies-icon {
+        height: 40px;
+    }
 
 }
 
 @media screen and (max-width: 991px) {
 
+    /* Banner */
+    .section__banner {
+        padding: 160px 0px;
+    }
+    .section__banner .description__wrapper h1 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    /* Our services */
+    .single__service {
+        justify-content: center;
+        padding: 40px 15px;
+    }
+
+    /* Portfolio */
+    .post__item--description-wrapper {
+        padding: 15px;
+    }
+
+    /* Project */
+    .section__content .content--description .wp-caption {
+        max-width: 100%;
+        width: auto !important;
+    }
+    .about_project--item {
+        padding: 30px 10px;
+        flex-direction: column;
+    }
+    .about_project--icon {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 768px) {
 
+    /* GENERAL */
+    .container {
+        padding: 0px 20px;
+    }
+    .section__title-wrapper {
+        margin-bottom: 40px;
+    }
+    .mobile_show {
+        display: flex;
+    }
+
+    /* HEADER */
+    header {
+        background: #4281ee;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .burger_wrapper {
+        display: flex;
+    }
+    .menu-header-container {
+        position: absolute;
+        top: 89px;
+        left: 0px;
+        width: 100%;
+        background: #4281ef;
+        height: 0px;
+        overflow: hidden;
+    }
+    .menu_wrapper.open .menu-header-container {
+        height: auto;
+    }
+    .menu_wrapper ul {
+        flex-direction: column;
+        padding-top: 50px;
+        position: relative;
+    }
+    .menu_wrapper ul:before {
+        content: 'MENU';
+        display: block;
+        position: absolute;
+        font-family: 'Mulish', sans-serif;
+        font-weight: 1000;
+        font-size: 128px;
+        line-height: 161px;
+        color: #FFFFFF;
+        opacity: 0.05;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+    .menu_wrapper ul li {
+        margin-left: 0px;
+        margin-bottom: 50px;
+        text-align: center;
+        z-index: 10;
+    }
+
+    /* Banner */
+    .section__banner {
+        background-color: #4281ed;
+        background-image: none !important;
+        padding: 152px 0px 64px;
+    }
+    .section__banner .section__bg--left {
+        display: none;
+    }
+    .section__banner .description__wrapper {
+        width: 100%;
+    }
+    .section__banner .description__wrapper h1 {
+        font-size: 48px;
+    }
+
+    /* Our services */
+    .single__service {
+        padding: 52px 32px;
+        width: 100%;
+        border: 0px solid rgba(0, 0, 0, 0.1) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        display: none;
+    }
+    .single__service:last-child {
+        border-bottom: 0px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    .single__service:nth-child(-n+6) {
+        display: flex;
+    }
+
+    /* Portfolio component */
+    .post__item--wrapper,
+    .post__item--wrapper:nth-child(even) {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    .post__item--image {
+        height: 310px;
+        width: 100%;
+    }
+    .post__item--description-wrapper {
+        padding: 40px 0px;
+        width: 100%;
+    }
+    .post__item--technologies-wrapper {
+        margin-bottom: 100px;
+        width: 100%;
+    }
+
+    /* Technologies */
+    .section__technologies {
+        padding-bottom: 44px;
+    }
+    .section__icons-mobile-wrapper {
+        overflow: auto;
+        padding-bottom: 20px;
+    }
+    .section__icons-wrapper {
+        min-width: 700px;
+    }
+
+    /* Portfolio archive */
+
+    .section__portfolio-page {
+        padding: 64px 0px;
+    }
+    .section__portfolio-page .post__item--wrapper:last-child {
+        margin-bottom: 0px;
+    }
+    .section__portfolio-page .post__item--wrapper:last-child .post__item--description-wrapper {
+        padding-bottom: 0px;
+    }
+
+    /* Portfolio item */
+
+    .about_project--wrapper {
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .about_project--item {
+        border-top: 0px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+        padding: 26px 32px 26px 32px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 170px;
+    }
+    .about_project--item:first-child {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .about_project--icon {
+        margin-right: 24px;
+        margin-bottom: 0px;
+    }
+    .about_project--description {
+        max-width: 150px;
+    }
+    .section__content .content--description .wp-caption-text {
+        margin: 10px 0px 12px !important;
+    }
+    .content--description {
+        padding-top: 30px;
+    }
+    .portfolio--section__technologies .section-title {
+        text-align: center;
+    }
+    .portfolio--section__technologies .section__icons-wrapper {
+        min-width: auto;
+        justify-content: center;
+    }
+    .portfolio--section__technologies .section__icons-wrapper .single__icon {
+        width: 33.33%;
+    }
+
+    /* Contacts */
+
+    .section__contacts .wrapper {
+        padding: 0px 15px;
+    }
+    .section__contacts .contacts--wrapper .contacts--title {
+        display: none;
+    }
+    .section__contacts .form--wrapper {
+        width: 100%;
+        padding-right: 0px;
+    }
+    .input-wrapper.input-submit {
+        justify-content: flex-start;
+    }
+    .section__contacts .contacts--wrapper {
+        width: 100%;
+        padding-left: 0px;
+        margin-top: 40px;
+    }
+    .section__banner--project_page .container {
+        padding: 0px 64px;
+    }
 }
 
 @media screen and (max-width: 576px) {
 
+    .section__title-wrapper {
+        text-align: center;
+    }
+    .section__banner .description__wrapper .description p {
+        font-size: 16px;
+    }
+    .section-title {
+        line-height: 50px;
+    }
 }
 
 @media screen and (max-width: 480px) {

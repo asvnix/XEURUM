@@ -25,12 +25,14 @@ function xeu_render_technologies($section_id = '') {
                             <h2 class="section-title"><?= $title; ?></h2>
                         </div>
                     <?php endif; ?>
-                    <div class="section__icons-wrapper">
-                        <?php foreach ($icons as $index => $icon) : ?>
-                            <div class="single__icon single__icon-<?= ceil(($index+1) / 7); ?>">
-                                <img src="<?= wp_get_attachment_image_url($icon, 'thumb'); ?>">
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="section__icons-mobile-wrapper">
+                        <div class="section__icons-wrapper">
+                            <?php foreach ($icons as $index => $icon) : ?>
+                                <div class="single__icon single__icon-<?= ceil(($index+1) / 7); ?>">
+                                    <img src="<?= wp_get_attachment_image_url($icon, 'thumb'); ?>">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>

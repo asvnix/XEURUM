@@ -12,7 +12,7 @@ $description_project = get_post_meta(get_the_id(), $prefix . 'description_projec
 
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
-        <section class="section section__banner" style="background-image: url('<?= $image_url; ?>')">
+        <section class="section section__banner section__banner--project_page" style="background-image: url('<?= $image_url; ?>')">
             <div class="container">
                 <div class="row">
                     <div class="wrapper">
@@ -51,21 +51,23 @@ $description_project = get_post_meta(get_the_id(), $prefix . 'description_projec
                 </div>
             </section>
         <?php endif; ?>
-        <section class="section section__content">
-            <div class="container">
-                <div class="row">
-                    <div class="wrapper">
-                        <div class="section__content--wrapper">
-                            <?php foreach ($description_project as $description) : ?>
-                                <div class="content--description">
-                                    <?= apply_filters('the_content', $description['description']); ?>
-                                </div>
-                            <?php endforeach; ?>
+        <?php if(is_array($description_project) && count($description_project) > 0): ?>
+            <section class="section section__content">
+                <div class="container">
+                    <div class="row">
+                        <div class="wrapper">
+                            <div class="section__content--wrapper">
+                                <?php foreach ($description_project as $description) : ?>
+                                    <div class="content--description">
+                                        <?= apply_filters('the_content', $description['description']); ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
         <section class="section section__technologies portfolio--section__technologies">
             <div class="container">
                 <div class="row">

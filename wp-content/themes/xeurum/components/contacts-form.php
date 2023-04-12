@@ -14,6 +14,7 @@ $address = $settings[$prefix . 'contacts_address'];
     <div class="container">
         <div class="row">
             <div class="wrapper">
+                <h2 class="contacts--title mobile_show"><?= $title; ?></h2>
                 <div class="form--wrapper">
                     <?= do_shortcode('[contact-form-7 id="5" title="Contacts"]'); ?>
                 </div>

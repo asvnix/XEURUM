@@ -22,19 +22,23 @@ function xeu_render_portfolio($section_id = '') {
     ?>
 
     <section class="<?= $section_classes; ?>">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <?php if ( $query->have_posts() ) : ?>
+                        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-        <?php if ( $query->have_posts() ) : ?>
-            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                            <?php get_template_part( 'components/portfolio', '', [
+                                'post_id' => get_the_ID(),
+                                'prefix' => '_xeu_portfolio_',
+                                'technologies_int' => 5
+                            ] ); ?>
 
-                <?php get_template_part( 'components/portfolio', '', [
-                    'post_id' => get_the_ID(),
-                    'prefix' => '_xeu_portfolio_',
-                    'technologies_int' => 5
-                ] ); ?>
-
-            <?php endwhile; ?>
-        <?php endif; ?>
-
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </section>
 
     <?php
