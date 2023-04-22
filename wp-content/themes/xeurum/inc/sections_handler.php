@@ -2,10 +2,12 @@
 
 $sections_path = get_template_directory() . '/sections';
 
-foreach (scandir($sections_path) as $filename) {
-    $path = $sections_path . '/' . $filename;
-    if (is_file($path)) {
-        require $path;
+if(get_template_directory()) {
+    foreach (scandir($sections_path) as $filename) {
+        $path = $sections_path . '/' . $filename;
+        if (is_file($path)) {
+            require $path;
+        }
     }
 }
 
@@ -19,11 +21,11 @@ function xeu_register_meta_boxes($meta_boxes) {
         'id' => 'page_sections',
         'title' => 'Sections',
         'post_types' => ['page'],
-         'include' => [
-             'template' => [
-                 'landingpage.php',
-             ]
-         ],
+        'include' => [
+            'template' => [
+                'landingpage.php',
+            ]
+        ],
         'context' => 'side',
         'priority' => 'high',
         'fields' => [
@@ -59,18 +61,28 @@ function get_sections() {
 
     global $sections_path;
 
-    $files = array_diff(scandir($sections_path), ['.', '..']);
+    if($sections_path) {
 
-    $keys = array_map(function($file) {
-        return substr($file, 0, strpos($file, '.'));
-    }, $files);
+        $files = array_diff(scandir($sections_path), ['.', '..']);
 
-    $values = array_map(function($file) {
-        return ucfirst(str_replace('_', ' ', $file));
-    }, $keys);
+    }
 
-    return array_combine($keys, $values);
-    
+    if(!empty($files) && is_array($files)) {
+        $keys = array_map(function($file) {
+            return substr($file, 0, strpos($file, '.'));
+        }, $files);
+    }
+
+    if(!empty($keys) && is_array($keys)) {
+        $values = array_map(function($file) {
+            return ucfirst(str_replace('_', ' ', $file));
+        }, $keys);
+    }
+
+    if(!empty($keys) && is_array($keys) && !empty($values) && is_array($values)) {
+        return array_combine($keys, $values);
+    }
+
 }
 
 function xeu_get_sections_metaboxes($prefix) {
@@ -100,11 +112,11 @@ add_action('save_post', 'xeu_save_section_id');
 function xeu_save_section_id($post_id) {
     $meta_field = '_xeu_page_sections';
 
-    $sections_data = filter_input(INPUT_POST, $meta_field, FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);   
+    $sections_data = filter_input(INPUT_POST, $meta_field, FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 
     if (!empty($sections_data)) {
         $ids = array_column($sections_data, 'id');
-        
+
         foreach ($sections_data as $key => $value) {
             $data[] = [
                 'id' => isset($value['id']) && !empty($value['id']) ? $value['id'] : xeu_generate_id($key + 1, $ids),

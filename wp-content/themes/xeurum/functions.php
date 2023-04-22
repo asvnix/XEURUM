@@ -16,8 +16,8 @@ add_action('wp_enqueue_scripts', 'xeurum_scripts');
 add_action('wp_enqueue_scripts', 'xeurum_styles');
 
 function xeurum_styles() {
-    
-    wp_enqueue_style( 'xeurum-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0' );
+
+    wp_enqueue_style( 'xeurum-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.3' );
     wp_enqueue_style( 'xeurum-media-style', get_template_directory_uri() . '/css/media.css', array(), '1.0.0' );
 
 }
@@ -54,3 +54,31 @@ function register_options_pages($settings_pages) {
 include 'inc/sections_handler.php';
 include 'inc/metaboxes.php';
 include 'inc/post_types.php';
+
+add_filter('gutenberg_can_edit_post', '__return_false', 10);
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+// Disable Gutenberg on the back end.
+add_filter( 'use_block_editor_for_post', '__return_false', 10);
+
+// Disable Gutenberg for widgets.
+add_filter( 'use_widgets_block_editor', '__return_false', 10);
+
+add_action( 'wp_enqueue_scripts', function() {
+    // Remove CSS on the front end.
+    wp_dequeue_style( 'wp-block-library' );
+
+    // Remove Gutenberg theme.
+    wp_dequeue_style( 'wp-block-library-theme' );
+
+    // Remove inline global CSS on the front end.
+    wp_dequeue_style( 'global-styles' );
+}, 20 );
+
+function codextent_ssl_srcset( $sources ) {
+    foreach ( $sources as &$source ) {
+        $source['url'] = set_url_scheme( $source['url'], 'https' );
+    }
+    return $sources;
+}
+add_filter( 'wp_calculate_image_srcset', 'codextent_ssl_srcset', 10);
