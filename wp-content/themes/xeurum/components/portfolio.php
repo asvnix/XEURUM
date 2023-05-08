@@ -7,6 +7,8 @@ $post_id = $args['post_id'];
 $prefix = $args['prefix'];
 $technologies_int = $args['technologies_int'];
 
+$post_image = get_post_meta($post_id, $prefix . 'archive_image', true);
+$post_image_url = $post_image ? wp_get_attachment_image_url($post_image, 'large') : get_the_post_thumbnail_url($post_id, 'large');
 $post_description = get_post_meta($post_id, $prefix . 'description_short', true);
 $technologies = get_post_meta($post_id, $prefix . 'technologies');
 
@@ -14,7 +16,7 @@ $technologies = get_post_meta($post_id, $prefix . 'technologies');
 
 <div class="post__item--wrapper">
     <div class="post__item--image">
-        <img src="<?= get_the_post_thumbnail_url($post_id, 'large'); ?>">
+        <img src="<?= $post_image_url; ?>">
     </div>
     <div class="post__item--description-wrapper">
         <h2 class="post__item--title"><?= get_the_title($post_id); ?></h2>

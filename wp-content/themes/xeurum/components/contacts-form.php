@@ -4,9 +4,9 @@ $prefix = '_xeu_footer_field_';
 $settings = get_option('xeu_footer_settings');
 
 $title = $settings[$prefix . 'contacts_title'];
-$email = $settings[$prefix . 'contacts_email'];
-$phone = $settings[$prefix . 'contacts_phone'];
-$address = $settings[$prefix . 'contacts_address'];
+$email = isset($settings[$prefix . 'contacts_email']) ? $settings[$prefix . 'contacts_email'] : false;
+$phone = isset($settings[$prefix . 'contacts_phone']) ? $settings[$prefix . 'contacts_phone'] : false;
+$address = isset($settings[$prefix . 'contacts_address']) ? $settings[$prefix . 'contacts_address'] : false;
 
 ?>
 
@@ -21,9 +21,15 @@ $address = $settings[$prefix . 'contacts_address'];
                 <div class="contacts--wrapper">
                     <h2 class="contacts--title"><?= $title; ?></h2>
                     <ul class="contacts--list">
-                        <li class="contacts--item email--item"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></li>
-                        <li class="contacts--item phone--item"><a href="tel:<?= $phone; ?>"><?= $phone; ?></a></li>
-                        <li class="contacts--item address--item"><span><?= $address; ?></span></li>
+                        <?php if($email) : ?>
+                            <li class="contacts--item email--item"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></li>
+                        <?php endif; ?>
+                        <?php if($phone) : ?>
+                            <li class="contacts--item phone--item"><a href="tel:<?= $phone; ?>"><?= $phone; ?></a></li>
+                        <?php endif; ?>
+                        <?php if($address) : ?>
+                            <li class="contacts--item address--item"><span><?= $address; ?></span></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>

@@ -81,6 +81,11 @@ function xeu_register_settings_meta_boxes( $meta_boxes ) {
         'post_types' => 'portfolio',
         'fields' => [
             [
+                'name' => 'Portfolio image on main/archive pages',
+                'id' => $portfolio_prefix . 'archive_image',
+                'type' => 'single_image'
+            ],
+            [
                 'name' => 'Portfolio description',
                 'id' => $portfolio_prefix . 'description',
                 'type' => 'wysiwyg'

@@ -766,7 +766,6 @@ header.fixed {
     color: #1A1A1A;
     margin: 0px 0px 16px;
     width: 100%;
-    display: flex;
 }
 .section__content .content--description .wp-caption {
     align-self: center;
@@ -784,9 +783,15 @@ header.fixed {
 .section__content--wrapper img {
     max-width: 100%;
     height: auto;
-    margin: 0 auto !important;
+}
+.section__content--wrapper img.aligncenter {
+    margin-left: 50% !important;
+    transform: translateX(-50%);
 }
 
+.portfolio--section__technologies .section__icons-wrapper {
+    justify-content: center;
+}
 .portfolio--section__technologies .section__icons-wrapper .single__icon {
     width: 12.5%;
 }
