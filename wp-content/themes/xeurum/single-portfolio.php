@@ -73,7 +73,7 @@ $description_project = get_post_meta(get_the_id(), $prefix . 'description_projec
                 <div class="row">
                     <div class="wrapper">
                         <div class="section__title-wrapper">
-                            <h2 class="section-title">The technologies we have use</h2>
+                            <h2 class="section-title">The technologies we have used:</h2>
                         </div>
                         <div class="section__icons-wrapper">
                             <?php foreach ($technologies as $index => $icon) : ?>

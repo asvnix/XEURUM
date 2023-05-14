@@ -15,7 +15,10 @@
 	</head>
 
 	<body>
-		<header>
+    <?php
+        /** @var array $args */
+    ?>
+		<header class="<?= isset($args['classes']) ? $args['classes'] : null; ?>">
             <div class="container">
                 <div class="row">
                     <div class="wrapper">

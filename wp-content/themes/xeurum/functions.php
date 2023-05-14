@@ -31,7 +31,8 @@ function xeurum_scripts() {
 // Register  navigation menus
 add_action( 'after_setup_theme', function(){
     register_nav_menus( [
-        'headerMenu' => 'Header Menu'
+        'headerMenu' => 'Header Menu',
+        'footerMenu' => 'Footer Menu'
     ] );
 } );
 
