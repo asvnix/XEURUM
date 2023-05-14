@@ -1,5 +1,6 @@
 wp-includes
 wp-admin
+wp-content/uploads
 
 wp-activate.php
 wp-blog-header.php
