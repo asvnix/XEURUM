@@ -464,16 +464,10 @@ header.fixed, header.default {
     position: relative;
 }
 .section__contacts .form--wrapper .wpcf7-response-output {
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-    text-align: center;
-    position: absolute;
-    bottom: -35px;
-    width: 100%;
+    display: none !important;
 }
 .input-wrapper p {
-    margin: 0px 0px 16px;
+    margin: 0px 0px 36px;
 }
 .input-wrapper .wpcf7-form-control-wrap {
     display: block;
@@ -492,8 +486,26 @@ header.fixed, header.default {
 }
 .input-wrapper .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
     position: absolute;
-    font-size: 12px;
-    color: black;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FF0000;
+    padding: 6px 20px 6px 36px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    bottom: -40px;
+}
+.input-wrapper .wpcf7-form-control-wrap .wpcf7-not-valid-tip:before {
+    content: '';
+    position: absolute;
+    background-image: url("../image/icons/18-failed.svg");
+    width: 18px;
+    height: 18px;
+    display: block;
+    top: 6px;
+    left: 9px;
 }
 .input-wrapper .wpcf7-form-control-wrap input::placeholder {
     font-family: 'Mulish', sans-serif;
@@ -852,4 +864,64 @@ header.fixed, header.default {
 }
 footer.contacts .section__contacts {
     padding: 80px 0px;
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: .3s;
+}
+.modal.show {
+    transform: scale(1);
+}
+.modal__overlay {
+    background: rgba(24, 46, 88, 0.7);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.modal__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4380F0;
+    border-radius: 2px;
+    padding: 80px;
+    width: 90%;
+    max-width: 990px;
+    text-align: center;
+}
+.modal__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal__success--description {
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 36px;
+}
+.modal__close--btn {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #4380F0;
+    background: #ffffff;
+    display: block;
+    padding: 16px 80px;
+    cursor: pointer;
 }

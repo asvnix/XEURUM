@@ -37,3 +37,28 @@ $address = isset($settings[$prefix . 'contacts_address']) ? $settings[$prefix . 
     </div>
 </section>
 
+<div class="modal modal__success">
+    <div class="modal__overlay modal__close"></div>
+    <div class="modal__container">
+        <div class="modal__wrapper">
+            <p class="modal__success--description">Thank you for your message. </br> We will be in touch soon</p>
+            <span class="modal__close modal__close--btn">Close</span>
+        </div>
+    </div>
+</div>
+<script>
+    const form = document.querySelector( '.wpcf7-form' );
+
+    if(form) {
+        const modalClose = document.querySelectorAll( '.modal__close' );
+        const modalSuccess = document.querySelector( '.modal__success' );
+        form.addEventListener( 'wpcf7mailsent', function() {
+            modalSuccess.classList.add('show');
+        }, false );
+        modalClose.forEach(element => {
+            element.addEventListener('click', () => {
+                modalSuccess.classList.remove('show');
+            });
+        });
+    }
+</script>
